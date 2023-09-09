@@ -43,6 +43,10 @@ main {
   width: 100%;
 }
 
+main p {
+  font-size: 1.3rem;
+}
+
 footer {
   display: flex;
   align-items: center;
