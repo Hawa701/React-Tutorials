@@ -6,7 +6,7 @@
 }
 
 :root {
-  --primary: orange;
+  --primary: royalblue;
 
   --main-bg: #fff;
 
@@ -41,12 +41,27 @@ header h1 {
 
 main {
   display: flex;
-  padding: 1rem 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
+  gap: 1rem;
 }
 main p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+}
+main button {
+  width: 10rem;
+  height: 2rem;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--primary);
+  color: #fff;
+}
+main .clickedTimes {
+  font-size: 0.9rem;
 }
 
 footer {
