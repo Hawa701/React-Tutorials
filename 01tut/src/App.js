@@ -8,9 +8,12 @@ function App() {
   console.log(savedItems);
   const initialItems = savedItems ? JSON.parse(savedItems) : [];
 
+  //State Hooks
   const [items, setItems] = useState(initialItems);
   const [newItem, setNewItem] = useState("");
+  const [search, setSearch] = useState("");
 
+  //Functions
   const setAndSaveItem = (listItems) => {
     setItems(listItems);
     localStorage.setItem("shoppinglist", JSON.stringify(listItems));
@@ -49,10 +52,14 @@ function App() {
     <>
       <Header title="Shopping List" />
       <Content
+        search={search}
+        setSearch={setSearch}
         newItem={newItem}
         setNewItem={setNewItem}
         handleSubmit={handleSubmit}
-        items={items}
+        items={items.filter((item) =>
+          item.name.toLowerCase().includes(search.toLowerCase())
+        )}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
       />

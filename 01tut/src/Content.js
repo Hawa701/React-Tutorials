@@ -1,7 +1,10 @@
 import ItemList from "./ItemList";
 import AddItem from "./AddItem";
+import SearchItem from "./SearchItem";
 
 const Content = ({
+  search,
+  setSearch,
   newItem,
   setNewItem,
   handleSubmit,
@@ -11,6 +14,7 @@ const Content = ({
 }) => {
   return (
     <main>
+      <SearchItem search={search} setSearch={setSearch} />
       <AddItem
         newItem={newItem}
         setNewItem={setNewItem}
