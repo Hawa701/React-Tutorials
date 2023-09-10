@@ -1,8 +1,21 @@
 import ItemList from "./ItemList";
+import AddItem from "./AddItem";
 
-const Content = ({ items, handleCheck, handleDelete }) => {
+const Content = ({
+  newItem,
+  setNewItem,
+  handleSubmit,
+  items,
+  handleCheck,
+  handleDelete,
+}) => {
   return (
     <main>
+      <AddItem
+        newItem={newItem}
+        setNewItem={setNewItem}
+        handleSubmit={handleSubmit}
+      />
       {items.length ? (
         <ItemList
           items={items}

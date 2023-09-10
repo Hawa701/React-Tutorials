@@ -3,10 +3,7 @@ import { FaTrash } from "react-icons/fa";
 
 const LineItem = ({ item, handleCheck, handleDelete }) => {
   return (
-    <li
-      className={item.checked === true ? "item checked" : "item"}
-      key={item.id}
-    >
+    <li className={item.checked === true ? "item checked" : "item"}>
       <input
         type="checkbox"
         checked={item.checked}
