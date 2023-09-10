@@ -13,6 +13,10 @@
   --main-text: #303030;
 }
 
+li {
+  list-style-type: none;
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -42,34 +46,67 @@ header h1 {
 main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: start;
+  justify-content: start;
+  padding: 1rem;
   height: 100%;
   width: 100%;
   gap: 1rem;
 }
-main p {
-  font-size: 1.2rem;
+main ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
-main button {
-  width: 10rem;
-  height: 2rem;
+ul .item {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 0 0.5rem;
+  height: 1.5rem;
+  gap: 7px;
+}
+ul .item.checked {
+  text-decoration: line-through;
+  color: #606060;
+}
+ul .item:hover {
+  background-color: #e6e6e6;
+  transition: 0.2s ease-in-out;
+}
+ul .item input {
+  width: 5%;
+  accent-color: var(--primary);
+}
+
+ul .item label {
+  width: 90%;
+  user-select: none;
+}
+ul .item svg {
+  color: var(--primary);
+  width: 5%;
+}
+ul .item svg:hover {
+  color: red;
+  transition: 0.1s ease-in-out;
+}
+main .noResult {
   text-align: center;
-  border: none;
-  border-radius: 3px;
-  background-color: var(--primary);
-  color: #fff;
-}
-main .clickedTimes {
-  font-size: 0.9rem;
+  width: 100%;
 }
 
 footer {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 4rem;
   width: 100%;
+  gap: 4px;
   background-color: var(--primary);
   color: #fff;
+}
+footer .copyRight {
+  font-size: 10px;
 }

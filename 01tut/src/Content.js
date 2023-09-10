@@ -1,25 +1,17 @@
-import React, { useState } from "react";
+import ItemList from "./ItemList";
 
-const Content = () => {
-  const [name, setName] = useState("User");
-  const [count, setCount] = useState(0);
-
-  const handleNameChange = () => {
-    const names = ["Japu", "Saba", "Dinich"];
-    const index = Math.floor(Math.random() * 3);
-    return names[index];
-  };
-
-  const handleClick = () => {
-    setName(handleNameChange);
-    setCount(count + 1);
-  };
-
+const Content = ({ items, handleCheck, handleDelete }) => {
   return (
     <main>
-      <p>Welcome {name}!</p>
-      <button onClick={handleClick}>Generate Random User</button>
-      <p className="clickedTimes">You have clicked the button {count} times!</p>
+      {items.length ? (
+        <ItemList
+          items={items}
+          handleCheck={handleCheck}
+          handleDelete={handleDelete}
+        />
+      ) : (
+        <p className="noResult">No items available!</p>
+      )}
     </main>
   );
 };
