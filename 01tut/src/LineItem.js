@@ -13,7 +13,12 @@ const LineItem = ({ item, handleCheck, handleDelete }) => {
         onChange={() => handleCheck(item.id)}
       />
       <label onDoubleClick={() => handleCheck(item.id)}>{item.name}</label>
-      <FaTrash role="button" onClick={() => handleDelete(item.id)} />
+      <FaTrash
+        role="button"
+        tabIndex={0}
+        aria-label={`Delete ${item.name}`}
+        onClick={() => handleDelete(item.id)}
+      />
     </li>
   );
 };

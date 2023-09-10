@@ -20,6 +20,7 @@ li {
 body {
   width: 100vw;
   height: 100vh;
+  user-select: none;
 }
 
 #root {
@@ -81,7 +82,6 @@ ul .item input {
 
 ul .item label {
   width: 90%;
-  user-select: none;
 }
 ul .item svg {
   color: var(--primary);
