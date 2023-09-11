@@ -13,7 +13,7 @@ const Content = ({
   handleDelete,
 }) => {
   return (
-    <main>
+    <>
       <SearchItem search={search} setSearch={setSearch} />
       <AddItem
         newItem={newItem}
@@ -29,7 +29,7 @@ const Content = ({
       ) : (
         <p className="noResult">No items available!</p>
       )}
-    </main>
+    </>
   );
 };
 
