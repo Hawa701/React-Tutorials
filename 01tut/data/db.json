@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "checked": true,
+      "name": "Chocolate"
+    },
+    {
+      "id": 1,
+      "checked": false,
+      "name": "Peanut Butter"
+    },
+    {
+      "id": 1,
+      "checked": false,
+      "name": "Strawberry Jam"
+    }
+  ]
+}
