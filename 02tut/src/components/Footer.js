@@ -1,9 +1,10 @@
 import React from "react";
 
 const Footer = () => {
+  const today = new Date();
   return (
     <footer>
-      <p>Copyrights&copy;2023</p>
+      <p>Copyrights&copy;{today.getFullYear()}</p>
     </footer>
   );
 };

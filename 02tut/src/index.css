@@ -193,6 +193,18 @@ main {
   transition: 0.2s ease-in-out;
 }
 
+/* About */
+.about {
+  gap: 10px;
+}
+
+/* Missing */
+.missing {
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
 footer {
   height: 10vh;
   font-size: 0.8rem;
