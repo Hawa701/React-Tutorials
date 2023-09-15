@@ -54,6 +54,22 @@ function App() {
   const [postTitle, setPostTitle] = useState("");
   const [postBody, setPostBody] = useState("");
 
+  //   useEffect(() => {
+  //     const filteredResults = posts.filter((post) =>
+  //       post.title.toLowerCase().includes(search.toLowerCase()) ||
+  //         post.body.toLowerCase().includes(search.toLowerCase())
+  //     ));
+  //     setSearchResults(filteredResults.reverse());
+  // , [posts, search]);
+  useEffect(() => {
+    const filteredResults = posts.filter(
+      (post) =>
+        post.title.toLowerCase().includes(search.toLowerCase()) ||
+        post.body.toLowerCase().includes(search.toLowerCase())
+    );
+    setSearchResults(filteredResults.reverse());
+  }, [posts, search]);
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -79,7 +95,7 @@ function App() {
       <Header title="React Blog" />
       <Nav search={search} setSearch={setSearch} />
       <Routes>
-        <Route exact path="/" element={<Home posts={posts} />}></Route>
+        <Route exact path="/" element={<Home posts={searchResults} />}></Route>
         <Route
           exact
           path="/post"
