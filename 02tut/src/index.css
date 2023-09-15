@@ -94,19 +94,19 @@ nav ul li .link {
 }
 
 main {
-  height: 60vh;
-  max-width: 700px;
-  font-size: 1rem;
-}
-
-/* HOME */
-.home {
   flex-direction: column;
   justify-content: left;
   align-items: baseline;
   padding: 1rem;
-  gap: 10px;
+  height: 60vh;
+  max-width: 700px;
+  font-size: 1rem;
   overflow-y: scroll;
+}
+
+/* HOME */
+.home {
+  gap: 10px;
 }
 .home .noPostMessage {
   display: flex;
@@ -150,11 +150,6 @@ main {
 
 /* POST PAGE */
 .postPage {
-  flex-direction: column;
-  justify-content: left;
-  align-items: baseline;
-  padding: 1rem;
-  overflow-y: scroll;
   gap: 5px;
 }
 .postPage button {
@@ -163,6 +158,39 @@ main {
   padding: 0.5rem 1rem;
   background-color: red;
   color: #fff;
+}
+
+/* New post page */
+.newPost form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.newPost label {
+  font-size: 0.9rem;
+}
+.newPost input,
+.newPost textarea {
+  padding: 0.5rem 1rem;
+  outline: none;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.newPost textarea {
+  height: 150px;
+}
+.newPost button {
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  background-color: var(--primary);
+}
+.newPost button:hover {
+  background-color: var(--secondary);
+  transition: 0.2s ease-in-out;
 }
 
 footer {
