@@ -11,12 +11,19 @@ const PostPage = ({ posts, handleDelete }) => {
           <h3>{post.title}</h3>
           <span>{post.datetime}</span>
           <p className="postBody">{post.body}</p>
-          <button onClick={() => handleDelete(id)}>Delete Post</button>
+          <div className="btn">
+            <Link to={`/edit/${post.id}`}>
+              <button className="editBtn">Edit Post</button>
+            </Link>
+            <button className="deleteBtn" onClick={() => handleDelete(id)}>
+              Delete Post
+            </button>
+          </div>
         </>
       )}
       {!post && (
         <>
-          <h3>Post not found!</h3>
+          <h3>Post Not Found!</h3>
           <p>Looks like the post doesn't exist or has been deleted.</p>
           <p>
             <Link to="/">Go back to Homepage</Link>
