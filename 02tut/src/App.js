@@ -10,6 +10,8 @@ import Missing from "./pages/Missing";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
+import useWindowSize from "./hooks/useWindowSize";
+import useAxiosFetch from "./hooks/useAxiosFetch";
 import api from "./api/post";
 
 function App() {
@@ -21,24 +23,32 @@ function App() {
   const [editTitle, setEditTitle] = useState("");
   const [editBody, setEditBody] = useState("");
   const navigate = useNavigate();
+  const { width } = useWindowSize();
+  const { data, fetchError, isLoading } = useAxiosFetch(
+    "http://localhost:3500/posts"
+  );
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await api.get("/posts");
-        setPosts(response.data);
-      } catch (err) {
-        if (err.response) {
-          console.log(err.response.date);
-          console.log(err.response.status);
-          console.log(err.response.headers);
-        } else {
-          console.log(`Error: ${err.message}`);
-        }
-      }
-    };
-    fetchData();
-  }, []);
+    setPosts(data);
+  }, [data]);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await api.get("/posts");
+  //       setPosts(response.data);
+  //     } catch (err) {
+  //       if (err.response) {
+  //         console.log(err.response.date);
+  //         console.log(err.response.status);
+  //         console.log(err.response.headers);
+  //       } else {
+  //         console.log(`Error: ${err.message}`);
+  //       }
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   useEffect(() => {
     const filteredResults = posts.filter(
@@ -95,10 +105,20 @@ function App() {
 
   return (
     <>
-      <Header title="React Blog" />
+      <Header title="React Blog" width={width} />
       <Nav search={search} setSearch={setSearch} />
       <Routes>
-        <Route exact path="/" element={<Home posts={searchResults} />}></Route>
+        <Route
+          exact
+          path="/"
+          element={
+            <Home
+              posts={searchResults}
+              fetchError={fetchError}
+              isLoading={isLoading}
+            />
+          }
+        ></Route>
         <Route
           exact
           path="/post"
