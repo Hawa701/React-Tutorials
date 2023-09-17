@@ -6,7 +6,7 @@
 }
 
 :root {
-  --primary: coral;
+  --primary: #cae7df;
   --secondary: #303030;
 }
 
@@ -223,13 +223,14 @@ main {
   padding: 0.5rem 1rem;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #fff;
+  color: var(--secondary);
   background-color: var(--primary);
 }
 .newPost button:hover,
 .editPost button:hover {
   background-color: var(--secondary);
   transition: 0.2s ease-in-out;
+  color: #fff;
 }
 
 /* About */
@@ -248,5 +249,5 @@ footer {
   height: 10vh;
   font-size: 0.8rem;
   background-color: var(--primary);
-  color: #fff;
+  color: var(--secondary);
 }
